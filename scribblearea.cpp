@@ -66,7 +66,7 @@ ScribbleArea::ScribbleArea(QWidget *parent)
     setAttribute(Qt::WA_StaticContents);
     modified = false;
     scribbling = false;
-    myPenWidth = 10;
+    myPenWidth = 1;
     myPenColor = Qt::blue;
 }
 //! [0]
@@ -113,7 +113,7 @@ void ScribbleArea::setPenColor(const QColor &newColor)
 //! [6]
 
 //! [7]
-void ScribbleArea::setPenWidth(int newWidth)
+void ScribbleArea::setPenSize(int newWidth)
 //! [7] //! [8]
 {
     myPenWidth = newWidth;

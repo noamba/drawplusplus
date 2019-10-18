@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "scribblearea.h"
+#include "pensize.h"
 
 #include <QMainWindow>
 
@@ -19,12 +20,16 @@ public:
 
 public slots:
     void handleSave();
+    void handlePenSizeChange(int value);
     void openImage();
 
 private:
     Ui::MainWindow *ui;
 
     ScribbleArea *scribbleArea;
+
+    PenSize *penSize;
+
     QAction *saveAction;
     QAction *openAction;
 };

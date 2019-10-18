@@ -18,14 +18,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    pensize.cpp \
     scribblearea.cpp
 
 HEADERS += \
     mainwindow.h \
+    pensize.h \
     scribblearea.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    pensize.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
