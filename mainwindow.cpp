@@ -3,14 +3,16 @@
 #include "ui_mainwindow.h"
 
 #include <QFileDialog>
+//#include <QSizePolicy>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    QWidget *mainWidget = new QWidget(this);
     ui->setupUi(this);
     scribbleArea = new ScribbleArea;
-    setCentralWidget(scribbleArea);
+    setCentralWidget(mainWidget);
 
     QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
     saveAction = new QAction(tr("&Save Masterpiece"));
@@ -20,6 +22,24 @@ MainWindow::MainWindow(QWidget *parent)
     resize(500, 500);
 
     connect(saveAction, &QAction::triggered, this, &MainWindow::handleSave);
+
+    outerLayout = new QVBoxLayout;
+    mainWidget->setLayout(outerLayout);
+    topToolBar = new QToolBar;
+    outerLayout->addWidget(topToolBar);
+    topToolBar->addAction(saveAction);
+
+    innerLayout = new QHBoxLayout;
+    outerLayout->addLayout(innerLayout);
+
+    QWidget *leftWidget = new QWidget;
+    leftWidget->setMaximumWidth(10);
+//    QSpacerItem *spacer = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    innerLayout-> addWidget(leftWidget);
+    innerLayout->addWidget(scribbleArea);
+//    innerLayout->addSpacerItem(spacer);
+
+
 }
 
 

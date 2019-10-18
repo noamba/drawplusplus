@@ -4,6 +4,9 @@
 #include "scribblearea.h"
 
 #include <QMainWindow>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QToolBar>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,5 +28,8 @@ private:
 
     ScribbleArea *scribbleArea;
     QAction *saveAction;
+    QVBoxLayout *outerLayout;
+    QHBoxLayout *innerLayout;
+    QToolBar *topToolBar;
 };
 #endif // MAINWINDOW_H
