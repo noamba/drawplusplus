@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    scribbleArea = new ScribbleArea;
     setCentralWidget(scribbleArea);
 
 
