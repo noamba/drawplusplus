@@ -22,6 +22,8 @@ public:
 
 public slots:
     void handleSave();
+    void openImage();
+    void openColorPicker();
 
 private:
     Ui::MainWindow *ui;
@@ -31,5 +33,7 @@ private:
     QVBoxLayout *outerLayout;
     QHBoxLayout *innerLayout;
     QToolBar *topToolBar;
+    QAction *openAction;
+    QAction *openColorPickerAction;
 };
 #endif // MAINWINDOW_H
