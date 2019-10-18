@@ -19,11 +19,13 @@ public:
 
 public slots:
     void handleSave();
+    void openImage();
 
 private:
     Ui::MainWindow *ui;
 
     ScribbleArea *scribbleArea;
     QAction *saveAction;
+    QAction *openAction;
 };
 #endif // MAINWINDOW_H

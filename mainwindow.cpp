@@ -14,12 +14,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
     saveAction = new QAction(tr("&Save Masterpiece"));
+    openAction = new QAction(tr("&Load"));
     fileMenu->addAction(saveAction);
+    fileMenu ->addAction(openAction);
 
     setWindowTitle(tr("Scribble"));
     resize(500, 500);
 
     connect(saveAction, &QAction::triggered, this, &MainWindow::handleSave);
+    connect(openAction, &QAction::triggered, this, &MainWindow::openImage);
+
 }
 
 
@@ -34,5 +38,11 @@ void MainWindow::handleSave()
                                "untitled.png",
                                tr("Images (*.png)"));
     scribbleArea->saveImage(fileName, "png");
+}
+
+void MainWindow::openImage()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"));
+    scribbleArea->openImage(fileName);
 }
 
