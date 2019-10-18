@@ -5,6 +5,9 @@
 #include "pensize.h"
 
 #include <QMainWindow>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QToolBar>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,6 +25,7 @@ public slots:
     void handleSave();
     void handlePenSizeChange(int value);
     void openImage();
+    void openColorPicker();
 
 private:
     Ui::MainWindow *ui;
@@ -31,6 +35,11 @@ private:
     PenSize *penSize;
 
     QAction *saveAction;
+    QVBoxLayout *outerLayout;
+    QHBoxLayout *innerLayout;
+    QToolBar *topToolBar;
+    QToolBar *leftToolBar;
     QAction *openAction;
+    QAction *openColorPickerAction;
 };
 #endif // MAINWINDOW_H
