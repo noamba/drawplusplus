@@ -66,7 +66,7 @@ ScribbleArea::ScribbleArea(QWidget *parent)
     setAttribute(Qt::WA_StaticContents);
     modified = false;
     scribbling = false;
-    myPenWidth = 1;
+    myPenWidth = 10;
     myPenColor = Qt::blue;
 }
 //! [0]
@@ -211,22 +211,22 @@ void ScribbleArea::resizeImage(QImage *image, const QSize &newSize)
 //! [20]
 
 //! [21]
-void ScribbleArea::print()
-{
-#if QT_CONFIG(printdialog)
-    QPrinter printer(QPrinter::HighResolution);
+//void ScribbleArea::print()
+//{
+//#if QT_CONFIG(printdialog)
+//    QPrinter printer(QPrinter::HighResolution);
 
-    QPrintDialog printDialog(&printer, this);
-//! [21] //! [22]
-    if (printDialog.exec() == QDialog::Accepted) {
-        QPainter painter(&printer);
-        QRect rect = painter.viewport();
-        QSize size = image.size();
-        size.scale(rect.size(), Qt::KeepAspectRatio);
-        painter.setViewport(rect.x(), rect.y(), size.width(), size.height());
-        painter.setWindow(image.rect());
-        painter.drawImage(0, 0, image);
-    }
-#endif // QT_CONFIG(printdialog)
-}
+//    QPrintDialog printDialog(&printer, this);
+////! [21] //! [22]
+//    if (printDialog.exec() == QDialog::Accepted) {
+//        QPainter painter(&printer);
+//        QRect rect = painter.viewport();
+//        QSize size = image.size();
+//        size.scale(rect.size(), Qt::KeepAspectRatio);
+//        painter.setViewport(rect.x(), rect.y(), size.width(), size.height());
+//        painter.setWindow(image.rect());
+//        painter.drawImage(0, 0, image);
+//    }
+//#endif // QT_CONFIG(printdialog)
+//}
 //! [22]

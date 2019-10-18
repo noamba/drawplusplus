@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "scribblearea.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -6,7 +7,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setCentralWidget(scribbleArea);
+
+
+    setWindowTitle(tr("Scribble"));
+    resize(500, 500);
 }
+
 
 MainWindow::~MainWindow()
 {
