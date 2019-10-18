@@ -17,9 +17,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void handleSave();
+
 private:
     Ui::MainWindow *ui;
 
     ScribbleArea *scribbleArea;
+    QAction *saveAction;
 };
 #endif // MAINWINDOW_H
