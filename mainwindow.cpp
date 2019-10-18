@@ -38,13 +38,11 @@ MainWindow::MainWindow(QWidget *parent)
     innerLayout = new QHBoxLayout;
     outerLayout->addLayout(innerLayout);
 
-    QWidget *leftWidget = new QWidget;
-    leftWidget->setMaximumWidth(10);
-//    QSpacerItem *spacer = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    innerLayout-> addWidget(leftWidget);
-    innerLayout->addWidget(scribbleArea);
-//    innerLayout->addSpacerItem(spacer);
+    leftToolBar = new QToolBar;
+    leftToolBar->addAction(openColorPickerAction);
 
+    innerLayout->addWidget(leftToolBar);
+    innerLayout->addWidget(scribbleArea);
 
     connect(openAction, &QAction::triggered, this, &MainWindow::openImage);
     connect(openColorPickerAction, &QAction::triggered, this, &MainWindow::openColorPicker);

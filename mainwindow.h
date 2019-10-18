@@ -33,6 +33,7 @@ private:
     QVBoxLayout *outerLayout;
     QHBoxLayout *innerLayout;
     QToolBar *topToolBar;
+    QToolBar *leftToolBar;
     QAction *openAction;
     QAction *openColorPickerAction;
 };
