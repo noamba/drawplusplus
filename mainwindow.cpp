@@ -32,7 +32,13 @@ void MainWindow::handleSave()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
                                "untitled.png",
-                               tr("Images (*.png)"));
-    scribbleArea->saveImage(fileName, "png");
+                               tr("Images (*.png *.jpg *.giff)"));
+    if(!fileName.isEmpty()&& !fileName.isNull()){
+        QString filetype = fileName.split(".").last();
+        if (filetype.isEmpty()){
+            filetype = "png";
+        }
+        scribbleArea->saveImage(fileName, filetype.toUtf8());
+}
 }
 
