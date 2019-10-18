@@ -20,6 +20,7 @@ public:
 public slots:
     void handleSave();
     void openImage();
+    void openColorPicker();
 
 private:
     Ui::MainWindow *ui;
@@ -27,5 +28,6 @@ private:
     ScribbleArea *scribbleArea;
     QAction *saveAction;
     QAction *openAction;
+    QAction *openColorPickerAction;
 };
 #endif // MAINWINDOW_H
